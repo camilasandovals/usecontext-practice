@@ -1,12 +1,15 @@
 import { useContext } from "react"
-import { UserText } from "../App"
+import { UserStatus } from "../App"
 
 export default function SubPage() {
-    const userString = useContext(UserText);
+
+    const [signedIn, setSignedIn] = useContext(UserStatus)
     return(
         <>
             <h2>SubPage</h2>
-            {userString}
+            <button onClick={() => setSignedIn(!signedIn)}>
+                {signedIn? "Sign out" : "Sign In"}
+            </button>
         </>
     )
 }

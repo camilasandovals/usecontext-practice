@@ -1,17 +1,19 @@
-import { createContext } from 'react';
+// 1) import createContext
+import { useState, createContext } from 'react';
+import Pages from './components/Pages.jsx';
 import './App.css';
-import Pages from './components/Pages';
-
-export const UserText = createContext(null)
+// 2) create and export
+export const UserStatus = createContext(null);
 function App() {
+  const[signedIn, setSignedIn] = useState(false)
   return (
     <>
-    <UserText.Provider value={"Hello"}>
-      App
-      <Pages />
-    </UserText.Provider>
+      {/* Establish a provide  */}
+    <UserStatus.Provider value={[signedIn, setSignedIn]}>
+      <h1>{signedIn ? "Click to Sign Out" : "Click to Sign In"}</h1>
+      <Pages/>
+    </UserStatus.Provider>
     </>
   );
 }
-
 export default App;
