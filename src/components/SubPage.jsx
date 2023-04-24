@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { UserStatus } from "../App"
+import Button from "./Button"
 
 export default function SubPage() {
 
@@ -7,9 +8,7 @@ export default function SubPage() {
     return(
         <>
             <h2>SubPage</h2>
-            <button onClick={() => setSignedIn(!signedIn)}>
-                {signedIn? "Sign out" : "Sign In"}
-            </button>
+            <Button />
         </>
     )
 }
